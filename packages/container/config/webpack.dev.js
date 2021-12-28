@@ -1,5 +1,4 @@
 const { merge } = require('webpack-merge'); //merge is afunction that we can use to merge/combine two webpack projects
-const HtmlWebpackPlugin = require ('html-webpack-plugin');
 const ModuleFederationPlugin = require ('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require ('./webpack.common');
 const packageJson = require('../package.json');
@@ -21,9 +20,6 @@ const devConfig = {
                   marketing: 'marketing@http://localhost:8085/remoteEntry.js'
               },
               shared: packageJson.dependencies, 
-          }),
-          new HtmlWebpackPlugin({
-              template: './public/index.html', 
           }),
       ],
 };
