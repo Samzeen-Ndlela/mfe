@@ -8,13 +8,13 @@ const domain = process.env.PRODUCTION_DOMAIN;             //environmnt variable 
 const prodConfig = {
        mode: 'production',
        output: {
-           filename: '[name].[contenthash].js',
+           filename: '[name].[contenthash].js'
        },
        plugins: [
            new ModuleFederationPlugin({
                name: 'container',
                remotes: {
-                   marketing: `marketing${domain}/marketing/remoteEntry.js` 
+                   marketing: `marketing@${domain}/marketing/remoteEntry.js` 
                },
                shared: packageJson.dependencies,
            }),
